@@ -266,12 +266,12 @@ class ProductProvider extends Component {
       tempProducts = tempProducts.filter(item => item.freeShipping === true);
     }
     if (search.length > 0) {
-      tempProducts = tempProducts.filter(item => {
+      tempProducts = tempProducts.filter(item => { 
         let tempSearch = search.toLowerCase();
         let tempTitle = item.title.toLowerCase().slice(0, search.length);
-        if (tempSearch === tempTitle) {
-          return item;
-        }
+        
+          return tempSearch === tempTitle ? item : false;
+        
       });
     }
     this.setState({
